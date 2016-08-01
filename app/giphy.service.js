@@ -8,22 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var mocks_1 = require('./mocks');
 var core_1 = require('@angular/core');
-var giphy_form_1 = require('./giphy-form');
-var giphy_service_1 = require('./giphy.service');
-var AppComponent = (function () {
-    function AppComponent() {
+var GiphyService = (function () {
+    function GiphyService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "<h1>Giphy | Angular 2</h1>\n    <giphy-form></giphy-form>",
-            directives: [giphy_form_1.GiphyFormComponent],
-            providers: [giphy_service_1.GiphyService]
-        }), 
+    GiphyService.prototype.getGifs = function () {
+        return mocks_1.GIPHYREQUESTS;
+    };
+    GiphyService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], GiphyService);
+    return GiphyService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.GiphyService = GiphyService;
+//# sourceMappingURL=giphy.service.js.map

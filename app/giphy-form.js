@@ -9,21 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var giphy_form_1 = require('./giphy-form');
 var giphy_service_1 = require('./giphy.service');
-var AppComponent = (function () {
-    function AppComponent() {
+var GiphyFormComponent = (function () {
+    function GiphyFormComponent(giphyService) {
+        this.giphyService = giphyService;
     }
-    AppComponent = __decorate([
+    GiphyFormComponent.prototype.ngOnInit = function () {
+        this.giphyRequests = this.giphyService.getGifs();
+    };
+    GiphyFormComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "<h1>Giphy | Angular 2</h1>\n    <giphy-form></giphy-form>",
-            directives: [giphy_form_1.GiphyFormComponent],
-            providers: [giphy_service_1.GiphyService]
+            selector: 'giphy-form',
+            templateUrl: 'app/giphy-form.html'
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [giphy_service_1.GiphyService])
+    ], GiphyFormComponent);
+    return GiphyFormComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.GiphyFormComponent = GiphyFormComponent;
+;
+//# sourceMappingURL=giphy-form.js.map
