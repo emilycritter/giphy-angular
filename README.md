@@ -11,4 +11,5 @@ The application allows users to request content from giphy.
 * `cd giphy-angular`
 * `npm start`
 * search for gifs!
-![landing_page](/landing.png?raw=true)
+
+*Note: Prior to experimenting with Angular 2, I did not have experience building applications with NodeJS. For this application I used the Angular 2 "out of the box" setup from https://angular.io/docs/ts/latest/quickstart.html. I intend to enhance this application after I spend some time experimenting with NodeJS
