@@ -10,3 +10,5 @@ The application allows users to request content from giphy.
 * `git clone https://github.com/emilycritter/giphy-angular.git`
 * `cd giphy-angular`
 * `npm start`
+* search for gifs!
+![landing_page](/landing.png?raw=true)
