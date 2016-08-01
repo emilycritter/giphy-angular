@@ -9,20 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var giphy_service_1 = require('./giphy.service');
+var http_1 = require('@angular/http');
 var GiphyFormComponent = (function () {
-    function GiphyFormComponent(giphyService) {
-        this.giphyService = giphyService;
+    function GiphyFormComponent(http) {
+        this.link = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=';
+        this.gifs = [];
+        this.http = http;
     }
-    GiphyFormComponent.prototype.ngOnInit = function () {
-        this.giphyRequests = this.giphyService.getGifs();
+    GiphyFormComponent.prototype.performSearch = function (searchTerm) {
+        var _this = this;
+        var apiLink = this.link + searchTerm.value;
+        this.http.request(apiLink)
+            .subscribe(function (res) {
+            _this.gifs = res.json().data;
+            console.log(_this.gifs);
+        });
     };
     GiphyFormComponent = __decorate([
         core_1.Component({
             selector: 'giphy-form',
-            templateUrl: 'app/giphy-form.html'
+            template: "\n  <br>\n  <div class=\"input-group input-group-lg\">\n    <span class=\"input-group-addon glyphicon glyphicon-gift\" id=\"basic-addon1\"></span>\n    <input\n      type=\"text\"\n      class=\"form-control\"\n      placeholder=\"What would you like to see?\"\n      aria-describedby=\"basic-addon1\"\n      name=\"search\" #searchTerm (keyup)=\"performSearch(searchTerm)\"\n      >\n  </div>\n\n  <br>\n  <div class=\"container-flex\">\n    <div *ngFor=\"let g of gifs\">\n      <a href=\"{{g.url}}\" class=\"thumbnail\">\n        <img src=\"{{g.images.fixed_height.url}}\">\n      </a>\n    </div>\n  </div>",
+            styleUrls: ['app/giphy.css']
         }), 
-        __metadata('design:paramtypes', [giphy_service_1.GiphyService])
+        __metadata('design:paramtypes', [http_1.Http])
     ], GiphyFormComponent);
     return GiphyFormComponent;
 }());

@@ -1,4 +1,11 @@
-<div class="input-group">
+<div class="input-group input-group-lg">
   <span class="input-group-addon glyphicon glyphicon-gift" id="basic-addon1"></span>
   <input type="text" class="form-control" placeholder="What would you like to see?" aria-describedby="basic-addon1">
+</div>
+
+<br>
+<input name="search" #searchTerm (submit)="performSearch(searchTerm)">
+<br>
+<div *ngFor="let g of gifs">
+  <img src="{{g.images.original.url}}">
 </div>

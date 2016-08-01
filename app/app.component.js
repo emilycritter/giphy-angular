@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var giphy_form_1 = require('./giphy-form');
-var giphy_service_1 = require('./giphy.service');
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -18,8 +17,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             template: "<h1>Giphy | Angular 2</h1>\n    <giphy-form></giphy-form>",
-            directives: [giphy_form_1.GiphyFormComponent],
-            providers: [giphy_service_1.GiphyService]
+            directives: [giphy_form_1.GiphyFormComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
