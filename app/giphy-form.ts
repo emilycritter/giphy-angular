@@ -27,7 +27,7 @@ import { Http, Response } from '@angular/http';
   styleUrls: ['app/giphy.css']
 })
 export class GiphyFormComponent {
-  link = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=';
+  link = 'https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=';
   http: Http;
   gifs = [];
 
